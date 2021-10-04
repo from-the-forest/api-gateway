@@ -17,6 +17,7 @@ jobs:
             aws cloudformation validate-template \
               --template-body file://template.json \
               --region us-east-1
+
   deploy:
     executor: node/default
     steps:
@@ -36,6 +37,7 @@ jobs:
                 Stage=v1 \
                 Subdomain=api \
                 "Domain=$DOMAIN"
+
 workflows:
   version: 2
   primary:
