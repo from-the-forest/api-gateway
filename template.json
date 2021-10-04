@@ -1,0 +1,57 @@
+{
+    "Parameters": {
+        "ResourceNamespace": {
+            "Type": "String",
+            "Default": "ftf-main-api",
+            "Description": "The Resource Namespace"
+        },
+        "SSMNamespace": {
+            "Type": "String",
+            "Default": "/ftf/main/api",
+            "Description": "The SSM Namespace"
+        },
+        "Stage": {
+            "Type": "String",
+            "Default": "v1",
+            "Description": "The Api Stage Name"
+        },
+        "Subdomain": {
+            "Type": "String",
+            "Default": "api",
+            "Description": "The Subdomain Name"
+        },
+        "Domain": {
+            "Type": "String",
+            "Default": "test.fromtheforest.io",
+            "Description": "The Domain Name"
+        }
+    },
+    "Resources": {
+        "Stack": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+                "TemplateURL": "https://s3.amazonaws.com/com.cuffney.cf-templates/api-gateway/template.json",
+                "Parameters": {
+                    "ResourceNamespace": {
+                        "Ref": "ResourceNamespace"
+                    },
+                    "SSMNamespace": {
+                        "Ref": "SSMNamespace"
+                    },
+                    "Stage": {
+                        "Ref": "Stage"
+                    },
+                    "Subdomain": {
+                        "Ref": "Subdomain"
+                    },
+                    "Domain": {
+                        "Ref": "Domain"
+                    }
+                }
+            }
+        }
+    },
+    "Outputs": {
+
+    }
+}
