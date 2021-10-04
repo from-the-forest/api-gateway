@@ -41,9 +41,9 @@ workflows:
   primary:
     jobs:
       - validate:
-          context: ftf
+          context: FTF
       - deploy:
-          context: ftf 
+          context: FTF 
           requires:
             - validate
           filters:
