@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Deploy Cloudformation
           command: |
-            DOMAIN="test.fromtheforest.io"
+            DOMAIN=$([ "$CIRCLE_BRANCH" == "main" ] && echo "test.fromtheforest.io" || echo "fromtheforest.io")
             aws cloudformation deploy \
               --stack-name "ftf-$CIRCLE_BRANCH-api" \
               --template-file ./template.json \
