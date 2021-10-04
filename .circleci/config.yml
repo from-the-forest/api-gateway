@@ -27,7 +27,7 @@ jobs:
           command: |
             DOMAIN="test.fromtheforest.io"
             aws cloudformation deploy \
-              --stack-name "onset-$CIRCLE_BRANCH-api" \
+              --stack-name "ftf-$CIRCLE_BRANCH-api" \
               --template-file ./template.json \
               --no-fail-on-empty-changeset \
               --parameter-overrides \
